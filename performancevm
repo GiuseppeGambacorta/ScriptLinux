@@ -1,0 +1,23 @@
+#!/bin/bash
+
+
+if [[ "$1" == "kvm" ]]; then
+    sudo sysctl -w vm.nr_hugepages=16834
+else
+    sudo sysctl -w vm.nr_hugepages=0
+fi
+
+
+sudo sysctl -w vm.swappiness=0
+sudo sysctl -w vm.dirty_ratio=10
+sudo sysctl -w vm.dirty_background_ratio=5
+
+
+
+echo "Valori aggiornati:"
+sysctl vm.nr_hugepages vm.swappiness vm.dirty_ratio vm.dirty_background_ratio
+
+
+echo "Informazioni su Hugepages da /proc/meminfo:"
+cat /proc/meminfo | grep Huge
+
