@@ -34,3 +34,7 @@ echo -e "\nFrequenza CPU attuale:"
 cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_cur_freq
 
 echo -e "\nImpostazioni completate. La CPU è configurata per funzionare sempre alla massima frequenza."
+
+
+echo -1 | sudo tee /proc/sys/kernel/sched_rt_runtime_us
+echo -e "\nDisaiblito kernel throttling"
