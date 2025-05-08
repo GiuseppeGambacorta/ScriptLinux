@@ -3,7 +3,7 @@
 if [[ "$1" == "" ]]; then
     sudo chmod a+rw /dev/ttyACM0
 else
-    sudo chmod a+rw /dev/ttyACM"$1"
+    sudo chmod a+rw "$1"
 fi
 
 
